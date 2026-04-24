@@ -10,12 +10,12 @@
   Don't forget to replace REPLACE_WITH_YOUR_ID in the Formspree action URL.
 -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klaro — Tu Jefe de Gabinete con IA</title>
-  <meta name="description" content="Tu bandeja de entrada y calendario bajo control. Cada mañana. Sin mover un dedo.">
+  <title>Klaro — AI Chief of Staff</title>
+  <meta name="description" content="The Chief of Staff that never forgets anything. Klaro connects to every tool your team uses and shows up every morning with a full briefing.">
 
   <!-- Favicon would go here -->
   <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
@@ -156,6 +156,13 @@
       height: auto;
     }
 
+    .hero-tools {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
     /* PROBLEM */
     .problem {
       padding: 80px 0;
@@ -173,10 +180,17 @@
       padding: 24px;
     }
 
-    .problem-item p {
+    .problem-item h3 {
       font-size: 1.125rem;
-      color: var(--text-dark);
-      font-weight: 500;
+      color: var(--dark-green);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .problem-item p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     /* HOW IT WORKS */
@@ -796,7 +810,7 @@
   <nav>
     <div class="container nav-inner">
       <a href="#" class="logo">klaro</a>
-      <a href="#contact" class="btn">Solicitar acceso piloto</a>
+      <a href="#contact" class="btn">Request pilot access</a>
     </div>
   </nav>
 
@@ -805,9 +819,10 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <h1>Tu bandeja de entrada y calendario bajo control. Cada mañana. Sin mover un dedo.</h1>
-          <p>Klaro es un agente de IA que lee tus correos, reuniones y documentos — y te entrega un briefing diario con lo que importa, lo que necesita decisión y lo que puede esperar.</p>
-          <a href="#contact" class="btn">Quiero probarlo — 30 días gratis</a>
+          <h1>Meet Klaro. The Chief of Staff that never forgets anything.</h1>
+          <p>Klaro connects to every tool your team uses, learns how your business works, and shows up every morning with a full briefing, a prioritized action list, and zero dropped balls. Like a great Chief of Staff — without the salary.</p>
+          <a href="#contact" class="btn">Get your free 30-day pilot</a>
+          <p class="hero-tools">Works with Gmail, Slack, Drive, Notion, WhatsApp, Fathom, Outlook, Telegram — and anything else you already use.</p>
         </div>
         <div class="hero-image">
           <img src="ai-agent.png" alt="Agente de IA comunicándose con un usuario">
@@ -821,13 +836,16 @@
     <div class="container">
       <div class="problem-grid">
         <div class="problem-item">
-          <p>+80 correos al día, sin síntesis</p>
+          <h3>You remember everything. You shouldn't have to.</h3>
+          <p>Commitments made in meetings, emails that need a follow-up, decisions pending since last Tuesday — it all lives in your head.</p>
         </div>
         <div class="problem-item">
-          <p>Las reuniones terminan sin registro de decisiones</p>
+          <h3>Every tool is a silo.</h3>
+          <p>Email here, notes there, Slack everywhere. No one has the full picture. Except you. And that's exhausting.</p>
         </div>
         <div class="problem-item">
-          <p>Eres el único con la foto completa</p>
+          <h3>A real CoS costs €60K a year.</h3>
+          <p>And good ones are hard to find. Most SME directors just absorb the role themselves. Klaro changes that.</p>
         </div>
       </div>
     </div>
@@ -836,13 +854,13 @@
   <!-- HOW IT WORKS -->
   <section class="how-it-works">
     <div class="container">
-      <h2 class="section-title">Cómo funciona</h2>
+      <h2 class="section-title">How it works</h2>
       <div class="steps-grid">
         <!-- Step 01 - Connect -->
         <div class="step">
           <div class="step-number">01</div>
-          <h3>Conecta tus herramientas</h3>
-          <p>Una sesión de configuración. Nosotros nos encargamos de todo.</p>
+          <h3>We connect your world</h3>
+          <p>Gmail, Slack, Drive, Notion, Fathom, WhatsApp, Outlook — Klaro plugs into every tool you already use. One setup session. We handle everything.</p>
           <div class="step-visual">
             <div class="app-icons-grid">
               <div class="app-icon">
@@ -863,7 +881,7 @@
               <div class="app-icon">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion">
               </div>
-              <div class="app-icon app-icon-more">+ más</div>
+              <div class="app-icon app-icon-more">+ more</div>
             </div>
           </div>
         </div>
@@ -871,8 +889,8 @@
         <!-- Step 02 - Listen -->
         <div class="step">
           <div class="step-number">02</div>
-          <h3>Klaro lee todo</h3>
-          <p>Monitorea tus flujos de información automáticamente.</p>
+          <h3>Klaro reads, listens, and remembers</h3>
+          <p>Every email, meeting, document, and message. Nothing slips through.</p>
           <div class="step-visual">
             <svg class="data-flow-svg" viewBox="0 0 180 100">
               <!-- Sources -->
@@ -893,8 +911,8 @@
         <!-- Step 03 - Synthesize -->
         <div class="step">
           <div class="step-number">03</div>
-          <h3>El briefing llega a tu canal</h3>
-          <p>Cada mañana. Tú eliges dónde.</p>
+          <h3>Your briefing arrives every morning</h3>
+          <p>On WhatsApp, Telegram, or Slack — wherever you already are. What happened, what needs you, what can wait.</p>
           <div class="step-visual">
             <div class="briefing-preview">
               <div class="channel-icons">
@@ -921,8 +939,8 @@
         <!-- Step 04 - Ask -->
         <div class="step">
           <div class="step-number">04</div>
-          <h3>Pregunta lo que sea, cuando sea</h3>
-          <p>Responde al agente directamente en tu chat.</p>
+          <h3>Ask anything. Get an answer in seconds.</h3>
+          <p>"What did we agree with that supplier last month?" "What's pending from Tuesday's call?" Klaro knows. Just ask.</p>
           <div class="step-visual">
             <div class="agent-chat-wrapper">
               <svg class="agent-avatar-svg" viewBox="0 0 80 80">
@@ -945,7 +963,7 @@
   <!-- WHAT YOU GET -->
   <section class="what-you-get">
     <div class="container">
-      <h2 class="section-title">Qué obtienes</h2>
+      <h2 class="section-title">What you get</h2>
       <div class="cards-grid">
         <div class="card">
           <div class="card-icon">
@@ -961,8 +979,8 @@
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
             </svg>
           </div>
-          <h3>Briefing diario</h3>
-          <p>Resumen de correos, reuniones y acciones pendientes cada mañana.</p>
+          <h3>Morning briefing</h3>
+          <p>Every day starts with a clear summary of what happened, what's urgent, and what you can delegate. No inbox diving required.</p>
         </div>
         <div class="card">
           <div class="card-icon">
@@ -971,8 +989,8 @@
               <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
             </svg>
           </div>
-          <h3>Alertas de decisión</h3>
-          <p>Temas que necesitan tu atención antes de volverse urgentes.</p>
+          <h3>Nothing falls through the cracks</h3>
+          <p>Commitments, follow-ups, pending decisions — Klaro tracks them across every tool and reminds you before they become problems.</p>
         </div>
         <div class="card">
           <div class="card-icon">
@@ -983,8 +1001,8 @@
               <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <h3>Resumen de reuniones</h3>
-          <p>Síntesis estructurada con decisiones y próximos pasos después de cada llamada.</p>
+          <h3>Meeting memory</h3>
+          <p>After every call, Klaro produces a structured debrief: what was decided, who owns what, and what needs to happen next.</p>
         </div>
         <div class="card">
           <div class="card-icon">
@@ -995,8 +1013,8 @@
               <line x1="15" y1="10" x2="15" y2="10"/>
             </svg>
           </div>
-          <h3>Q&A bajo demanda</h3>
-          <p>Pregunta lo que sea sobre tus operaciones. Respuesta en segundos.</p>
+          <h3>Instant answers</h3>
+          <p>Ask about anything in your business — past meetings, ongoing threads, open items. Klaro has the context. You get the answer.</p>
         </div>
       </div>
     </div>
@@ -1005,7 +1023,7 @@
   <!-- TESTIMONIALS -->
   <section class="testimonials">
     <div class="container">
-      <h2 class="section-title">Lo que dicen nuestros usuarios piloto</h2>
+      <h2 class="section-title">What our first users say</h2>
       <div class="testimonials-grid">
         <!-- Sergio Díez -->
         <div class="testimonial-card">
@@ -1103,23 +1121,23 @@
   <!-- PILOT OFFER -->
   <section class="pilot-offer">
     <div class="container">
-      <h2>Piloto de 30 días. Gratis. Sin compromiso.</h2>
-      <p>Conectamos todo, lo usas un mes. Si te ahorra tiempo real, hablamos de un plan. Si no, sin resentimientos.</p>
-      <a href="#contact" class="btn">Solicita tu lugar en el piloto</a>
+      <h2>Try it for 30 days. Free. No commitment.</h2>
+      <p>We set Klaro up for you, connect it to your tools, and let it run for a month. If it feels like having a real Chief of Staff, we'll talk about a plan. If it doesn't deliver, you walk away with nothing owed.</p>
+      <a href="#contact" class="btn">Claim your pilot spot</a>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2 class="section-title">Empieza ahora</h2>
+      <h2 class="section-title">Get started</h2>
       <form class="contact-form" id="contact-form">
         <div class="form-group">
-          <label for="name">Nombre</label>
+          <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="company">Empresa</label>
+          <label for="company">Company</label>
           <input type="text" id="company" name="company" required>
         </div>
         <div class="form-group">
@@ -1127,21 +1145,21 @@
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="tools">¿Qué herramientas usas? (Gmail, Slack, etc.)</label>
+          <label for="tools">What tools do you use? (Gmail, Slack, etc.)</label>
           <textarea id="tools" name="tools"></textarea>
         </div>
-        <button type="submit" class="btn" id="submit-btn">Enviar solicitud</button>
-        <p class="form-message form-success" id="form-success">¡Gracias! Te respondemos en menos de 24 horas.</p>
-        <p class="form-message form-error" id="form-error">Hubo un error. Por favor, intenta de nuevo.</p>
+        <button type="submit" class="btn" id="submit-btn">Send request</button>
+        <p class="form-message form-success" id="form-success">Thanks! We'll get back to you within 24 hours.</p>
+        <p class="form-message form-error" id="form-error">Something went wrong. Please try again.</p>
       </form>
-      <p class="form-note" id="form-note">Te respondemos en menos de 24 horas.</p>
+      <p class="form-note" id="form-note">We'll get back to you within 24 hours.</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>klaro · Tu Jefe de Gabinete con IA · <a href="mailto:info@klaro.ai">info@klaro.ai</a></p>
+      <p>Klaro — AI Chief of Staff · Not a chatbot. Not a dashboard. A colleague that never forgets. · <a href="mailto:fernando@klaro.ai">fernando@klaro.ai</a></p>
     </div>
   </footer>
 
@@ -1161,7 +1179,7 @@
 
       // Disable button
       btn.disabled = true;
-      btn.textContent = 'Enviando...';
+      btn.textContent = 'Sending...';
 
       const data = {
         name: form.name.value,
@@ -1188,7 +1206,7 @@
         errorMsg.classList.add('visible');
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Enviar solicitud';
+        btn.textContent = 'Send request';
       }
     });
   </script>
