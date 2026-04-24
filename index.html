@@ -1,0 +1,536 @@
+<!--
+  KLARO LANDING PAGE
+  Deploy to Vercel:
+  1. Install Vercel CLI: npm i -g vercel
+  2. Run: vercel
+  3. Follow prompts to deploy
+
+  Or push to GitHub and connect to Vercel dashboard.
+
+  Don't forget to replace REPLACE_WITH_YOUR_ID in the Formspree action URL.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klaro — AI Chief of Staff</title>
+  <meta name="description" content="Your inbox and calendar under control. Every morning. Without lifting a finger.">
+
+  <!-- Favicon would go here -->
+  <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-green: #1D9E75;
+      --dark-green: #085041;
+      --light-green-bg: #E1F5EE;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-muted: #555555;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      z-index: 100;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-green);
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary-green);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--dark-green);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary-green);
+      color: var(--primary-green);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-green);
+      color: var(--white);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 160px 0 100px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark-green);
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* PROBLEM */
+    .problem {
+      padding: 80px 0;
+      background: #fafafa;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .problem-item {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .problem-item p {
+      font-size: 1.125rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    /* HOW IT WORKS */
+    .how-it-works {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 60px;
+      color: var(--dark-green);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary-green);
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark-green);
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* WHAT YOU GET */
+    .what-you-get {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 8px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark-green);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* PILOT OFFER */
+    .pilot-offer {
+      padding: 100px 0;
+      background: var(--light-green-bg);
+      text-align: center;
+    }
+
+    .pilot-offer h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--dark-green);
+      margin-bottom: 20px;
+    }
+
+    .pilot-offer p {
+      font-size: 1.125rem;
+      color: var(--text-dark);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 100px 0;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: var(--white);
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-green);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 1rem;
+    }
+
+    .form-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    footer p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--primary-green);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .problem-item {
+        padding: 16px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 140px 0 80px;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .nav-inner {
+        height: 64px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.875rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+      }
+
+      .pilot-offer h2 {
+        font-size: 1.5rem;
+      }
+
+      .pilot-offer p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">klaro</a>
+      <a href="#contact" class="btn">Request pilot access</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Your inbox and calendar under control. Every morning. Without lifting a finger.</h1>
+      <p>Klaro is an AI agent that reads your emails, meetings and documents — and delivers a daily briefing with what matters, what needs a decision, and what can wait.</p>
+      <a href="#contact" class="btn">I want to try it — 30 days free</a>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-item">
+          <p>80+ emails a day, no synthesis</p>
+        </div>
+        <div class="problem-item">
+          <p>Meetings end with no record of decisions</p>
+        </div>
+        <div class="problem-item">
+          <p>You're the only one with the full picture</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Connect</h3>
+          <p>Gmail, Drive, Calendar. One setup session.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Listen</h3>
+          <p>Klaro monitors your information streams automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Synthesize</h3>
+          <p>Every morning a briefing arrives on Slack or Telegram.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3>Ask</h3>
+          <p>Reply to the agent any time. "What's pending from last week?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="what-you-get">
+    <div class="container">
+      <h2 class="section-title">What you get</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Daily briefing</h3>
+          <p>Summary of emails, meetings and pending actions every morning.</p>
+        </div>
+        <div class="card">
+          <h3>Decision alerts</h3>
+          <p>Items that need your attention before they become urgent.</p>
+        </div>
+        <div class="card">
+          <h3>Meeting debrief</h3>
+          <p>Structured summary with decisions and next steps after each call.</p>
+        </div>
+        <div class="card">
+          <h3>On-demand Q&A</h3>
+          <p>Ask anything about your own operations. Answer in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILOT OFFER -->
+  <section class="pilot-offer">
+    <div class="container">
+      <h2>30-day pilot. Free. No commitment.</h2>
+      <p>We connect everything, you use it for a month. If it saves you real time, we talk about a plan. If it doesn't, no hard feelings.</p>
+      <a href="#contact" class="btn">Request your pilot spot</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get started</h2>
+      <form class="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="tools">What tools do you use? (Gmail, Slack, etc.)</label>
+          <textarea id="tools" name="tools"></textarea>
+        </div>
+        <button type="submit" class="btn">Send request</button>
+      </form>
+      <p class="form-note">We'll get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>klaro · AI Chief of Staff · <a href="mailto:fernando@klaro.ai">fernando@klaro.ai</a></p>
+    </div>
+  </footer>
+</body>
+</html>
