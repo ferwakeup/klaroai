@@ -115,26 +115,45 @@
 
     /* HERO */
     .hero {
-      padding: 160px 0 100px;
-      text-align: center;
+      padding: 140px 0 80px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: left;
     }
 
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
       font-weight: 400;
       line-height: 1.2;
       color: var(--dark-green);
-      max-width: 800px;
-      margin: 0 auto 24px;
+      margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 1.125rem;
       color: var(--text-muted);
-      max-width: 640px;
-      margin: 0 auto 40px;
+      margin-bottom: 32px;
       line-height: 1.7;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
     }
 
     /* PROBLEM */
@@ -534,7 +553,23 @@
       }
 
       .hero {
-        padding: 140px 0 80px;
+        padding: 120px 0 60px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-content {
+        text-align: center;
+        order: 1;
+      }
+
+      .hero-image {
+        order: 2;
+        max-width: 400px;
+        margin: 0 auto;
       }
 
       .hero h1 {
@@ -605,9 +640,16 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>Tu bandeja de entrada y calendario bajo control. Cada mañana. Sin mover un dedo.</h1>
-      <p>Klaro es un agente de IA que lee tus correos, reuniones y documentos — y te entrega un briefing diario con lo que importa, lo que necesita decisión y lo que puede esperar.</p>
-      <a href="#contact" class="btn">Quiero probarlo — 30 días gratis</a>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1>Tu bandeja de entrada y calendario bajo control. Cada mañana. Sin mover un dedo.</h1>
+          <p>Klaro es un agente de IA que lee tus correos, reuniones y documentos — y te entrega un briefing diario con lo que importa, lo que necesita decisión y lo que puede esperar.</p>
+          <a href="#contact" class="btn">Quiero probarlo — 30 días gratis</a>
+        </div>
+        <div class="hero-image">
+          <img src="ai-agent.png" alt="Agente de IA comunicándose con un usuario">
+        </div>
+      </div>
     </div>
   </section>
 
