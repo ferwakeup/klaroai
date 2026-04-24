@@ -203,6 +203,181 @@
       line-height: 1.6;
     }
 
+    .step-visual {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Step 01 - App Icons Grid */
+    .app-icons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 140px;
+    }
+
+    .app-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      padding: 6px;
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .app-icon-more {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Step 02 - Data Flow Animation */
+    .data-flow-svg {
+      width: 180px;
+      height: 100px;
+    }
+
+    .data-flow-line {
+      stroke: var(--primary-green);
+      stroke-width: 2;
+      stroke-dasharray: 8 4;
+      fill: none;
+      animation: flowLine 1.5s linear infinite;
+    }
+
+    @keyframes flowLine {
+      from {
+        stroke-dashoffset: 24;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .data-source {
+      fill: var(--light-green-bg);
+      stroke: var(--primary-green);
+      stroke-width: 1.5;
+    }
+
+    .data-center {
+      fill: var(--primary-green);
+    }
+
+    .data-center-text {
+      fill: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    /* Step 03 - Channel Icons */
+    .channel-icons {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .channel-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .channel-icon {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .channel-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .channel-item.active .channel-label {
+      color: var(--primary-green);
+      border-bottom-color: var(--primary-green);
+    }
+
+    /* Step 04 - Agent Avatar & Chat */
+    .agent-chat-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .agent-avatar-svg {
+      width: 80px;
+      height: 80px;
+    }
+
+    .agent-avatar-bg {
+      fill: var(--light-green-bg);
+      stroke: var(--primary-green);
+      stroke-width: 2;
+    }
+
+    .agent-avatar-letter {
+      fill: var(--primary-green);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .agent-dot {
+      fill: var(--primary-green);
+    }
+
+    .agent-line {
+      stroke: var(--primary-green);
+      stroke-width: 1;
+    }
+
+    .chat-mock {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .chat-bubble {
+      padding: 8px 12px;
+      border-radius: 16px;
+      font-size: 0.7rem;
+      line-height: 1.4;
+      max-width: 85%;
+    }
+
+    .chat-bubble.user {
+      background: #e5e5ea;
+      color: var(--text-dark);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-bubble.agent {
+      background: var(--light-green-bg);
+      color: #0F6E56;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
     /* WHAT YOU GET */
     .what-you-get {
       padding: 100px 0;
@@ -374,7 +549,7 @@
     @media (max-width: 600px) {
       .steps-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 48px;
       }
 
       .nav-inner {
@@ -397,6 +572,23 @@
 
       .pilot-offer p {
         font-size: 1rem;
+      }
+
+      .channel-icons {
+        gap: 16px;
+      }
+
+      .channel-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .chat-mock {
+        max-width: 180px;
+      }
+
+      .chat-bubble {
+        font-size: 0.65rem;
       }
     }
   </style>
@@ -441,25 +633,110 @@
     <div class="container">
       <h2 class="section-title">Cómo funciona</h2>
       <div class="steps-grid">
+        <!-- Step 01 - Connect -->
         <div class="step">
           <div class="step-number">01</div>
-          <h3>Conecta</h3>
-          <p>Gmail, Drive, Calendar. Una sesión de configuración.</p>
+          <h3>Conecta tus herramientas</h3>
+          <p>Una sesión de configuración. Nosotros nos encargamos de todo.</p>
+          <div class="step-visual">
+            <div class="app-icons-grid">
+              <div class="app-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
+              </div>
+              <div class="app-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar">
+              </div>
+              <div class="app-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Google Drive">
+              </div>
+              <div class="app-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" alt="Slack">
+              </div>
+              <div class="app-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg" alt="Outlook">
+              </div>
+              <div class="app-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion">
+              </div>
+              <div class="app-icon app-icon-more">+ más</div>
+            </div>
+          </div>
         </div>
+
+        <!-- Step 02 - Listen -->
         <div class="step">
           <div class="step-number">02</div>
-          <h3>Escucha</h3>
-          <p>Klaro monitorea tus flujos de información automáticamente.</p>
+          <h3>Klaro lee todo</h3>
+          <p>Monitorea tus flujos de información automáticamente.</p>
+          <div class="step-visual">
+            <svg class="data-flow-svg" viewBox="0 0 180 100">
+              <!-- Sources -->
+              <rect class="data-source" x="10" y="10" width="30" height="20" rx="4"/>
+              <rect class="data-source" x="10" y="40" width="30" height="20" rx="4"/>
+              <rect class="data-source" x="10" y="70" width="30" height="20" rx="4"/>
+              <!-- Flow lines -->
+              <path class="data-flow-line" d="M 40 20 Q 70 20, 90 50"/>
+              <path class="data-flow-line" d="M 40 50 L 90 50"/>
+              <path class="data-flow-line" d="M 40 80 Q 70 80, 90 50"/>
+              <!-- Center node -->
+              <circle class="data-center" cx="115" cy="50" r="25"/>
+              <text class="data-center-text" x="115" y="54" text-anchor="middle">klaro</text>
+            </svg>
+          </div>
         </div>
+
+        <!-- Step 03 - Synthesize -->
         <div class="step">
           <div class="step-number">03</div>
-          <h3>Sintetiza</h3>
-          <p>Cada mañana llega un briefing a Slack o Telegram.</p>
+          <h3>El briefing llega a tu canal</h3>
+          <p>Cada mañana. Tú eliges dónde.</p>
+          <div class="step-visual">
+            <div class="channel-icons">
+              <div class="channel-item">
+                <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                <span class="channel-label">WhatsApp</span>
+              </div>
+              <div class="channel-item active">
+                <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+                <span class="channel-label">Telegram</span>
+              </div>
+              <div class="channel-item">
+                <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" alt="Slack">
+                <span class="channel-label">Slack</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Step 04 - Ask -->
         <div class="step">
           <div class="step-number">04</div>
-          <h3>Pregunta</h3>
-          <p>Responde al agente en cualquier momento. "¿Qué quedó pendiente de la semana pasada?"</p>
+          <h3>Pregunta lo que sea, cuando sea</h3>
+          <p>Responde al agente directamente en tu chat.</p>
+          <div class="step-visual">
+            <div class="agent-chat-wrapper">
+              <svg class="agent-avatar-svg" viewBox="0 0 80 80">
+                <!-- Background -->
+                <rect class="agent-avatar-bg" x="8" y="8" width="64" height="64" rx="14"/>
+                <!-- Neural pattern dots -->
+                <circle class="agent-dot" cx="24" cy="24" r="3"/>
+                <circle class="agent-dot" cx="56" cy="24" r="3"/>
+                <circle class="agent-dot" cx="24" cy="56" r="3"/>
+                <circle class="agent-dot" cx="56" cy="56" r="3"/>
+                <!-- Connecting lines -->
+                <line class="agent-line" x1="24" y1="24" x2="40" y2="40"/>
+                <line class="agent-line" x1="56" y1="24" x2="40" y2="40"/>
+                <line class="agent-line" x1="24" y1="56" x2="40" y2="40"/>
+                <line class="agent-line" x1="56" y1="56" x2="40" y2="40"/>
+                <!-- K letter -->
+                <text class="agent-avatar-letter" x="40" y="48" text-anchor="middle">K</text>
+              </svg>
+              <div class="chat-mock">
+                <div class="chat-bubble user">¿Qué quedó pendiente de la semana pasada?</div>
+                <div class="chat-bubble agent">3 temas: contrato ABC, presupuesto Q2, reunión con proveedor...</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
