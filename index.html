@@ -644,6 +644,34 @@
       color: var(--text-muted);
     }
 
+    .form-message {
+      display: none;
+      text-align: center;
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .form-success {
+      background: var(--light-green-bg);
+      color: var(--dark-green);
+    }
+
+    .form-error {
+      background: #fee;
+      color: #c00;
+    }
+
+    .form-message.visible {
+      display: block;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
     /* FOOTER */
     footer {
       padding: 40px 0;
@@ -1085,7 +1113,7 @@
   <section class="contact" id="contact">
     <div class="container">
       <h2 class="section-title">Empieza ahora</h2>
-      <form class="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+      <form class="contact-form" id="contact-form">
         <div class="form-group">
           <label for="name">Nombre</label>
           <input type="text" id="name" name="name" required>
@@ -1102,9 +1130,11 @@
           <label for="tools">¿Qué herramientas usas? (Gmail, Slack, etc.)</label>
           <textarea id="tools" name="tools"></textarea>
         </div>
-        <button type="submit" class="btn">Enviar solicitud</button>
+        <button type="submit" class="btn" id="submit-btn">Enviar solicitud</button>
+        <p class="form-message form-success" id="form-success">¡Gracias! Te respondemos en menos de 24 horas.</p>
+        <p class="form-message form-error" id="form-error">Hubo un error. Por favor, intenta de nuevo.</p>
       </form>
-      <p class="form-note">Te respondemos en menos de 24 horas.</p>
+      <p class="form-note" id="form-note">Te respondemos en menos de 24 horas.</p>
     </div>
   </section>
 
@@ -1114,5 +1144,53 @@
       <p>klaro · Tu Jefe de Gabinete con IA · <a href="mailto:info@klaro.ai">info@klaro.ai</a></p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const btn = document.getElementById('submit-btn');
+      const successMsg = document.getElementById('form-success');
+      const errorMsg = document.getElementById('form-error');
+      const formNote = document.getElementById('form-note');
+
+      // Reset states
+      successMsg.classList.remove('visible');
+      errorMsg.classList.remove('visible');
+
+      // Disable button
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const data = {
+        name: form.name.value,
+        company: form.company.value,
+        email: form.email.value,
+        tools: form.tools.value
+      };
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          successMsg.classList.add('visible');
+          formNote.style.display = 'none';
+          form.reset();
+        } else {
+          throw new Error('Failed');
+        }
+      } catch (error) {
+        errorMsg.classList.add('visible');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Enviar solicitud';
+      }
+    });
+  </script>
 </body>
 </html>
