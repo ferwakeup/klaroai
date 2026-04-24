@@ -301,6 +301,17 @@
     }
 
     /* Step 03 - Channel Icons */
+    .briefing-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .briefing-mock {
+      max-width: 220px;
+    }
+
     .channel-icons {
       display: flex;
       gap: 24px;
@@ -733,18 +744,23 @@
           <h3>El briefing llega a tu canal</h3>
           <p>Cada mañana. Tú eliges dónde.</p>
           <div class="step-visual">
-            <div class="channel-icons">
-              <div class="channel-item">
-                <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                <span class="channel-label">WhatsApp</span>
+            <div class="briefing-preview">
+              <div class="channel-icons">
+                <div class="channel-item">
+                  <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                  <span class="channel-label">WhatsApp</span>
+                </div>
+                <div class="channel-item active">
+                  <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+                  <span class="channel-label">Telegram</span>
+                </div>
+                <div class="channel-item">
+                  <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" alt="Slack">
+                  <span class="channel-label">Slack</span>
+                </div>
               </div>
-              <div class="channel-item active">
-                <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
-                <span class="channel-label">Telegram</span>
-              </div>
-              <div class="channel-item">
-                <img class="channel-icon" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" alt="Slack">
-                <span class="channel-label">Slack</span>
+              <div class="chat-mock briefing-mock">
+                <div class="chat-bubble agent">Buenos días. Tienes 3 temas pendientes hoy: firmar contrato con Acme, revisar presupuesto Q2, y confirmar reunión con inversor.</div>
               </div>
             </div>
           </div>
